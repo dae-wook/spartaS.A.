@@ -1,12 +1,7 @@
-public class Bus {
+public class Bus extends PublicTransport{
 
-    static final int MAX_PASSENGER = 30;
-    private int passengerCount;
-    private int price = 0;
-    private static int number = 1;
-    private int fuel;
-    private int currentSpeed;
-    private String status;
+    final static int MAX_PASSENGER = 30;
+    int price = 0;
 
     public Bus() {
         System.out.println(number + "번 버스객체 만들어짐!");
@@ -15,54 +10,6 @@ public class Bus {
         this.status = "운행";
     }
 
-    public int getPassengerCount() {
-        return passengerCount;
-    }
-
-    public void setPassengerCount(int passengerCount) {
-        this.passengerCount = passengerCount;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public static int getNumber() {
-        return number;
-    }
-
-
-    public static void setNumber(int number) {
-        Bus.number = number;
-    }
-
-    public int getFuel() {
-        return fuel;
-    }
-
-    public void setFuel(int fuel) {
-        this.fuel = fuel;
-    }
-
-    public int getCurrentSpeed() {
-        return currentSpeed;
-    }
-
-    public void setCurrentSpeed(int currentSpeed) {
-        this.currentSpeed = currentSpeed;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
 
     public void changeFuel(int num) {
@@ -74,6 +21,7 @@ public class Bus {
             System.out.println("주유가 필요합니다.");
         }
     }
+    @Override
     public void changeStatus(String status) {
         if(status.equals("차고지행")) {
             this.status = "차고지행";
@@ -83,6 +31,7 @@ public class Bus {
             this.status = "운행";
         }
     }
+
 
     public void enterPassenger(int num) {
         if(MAX_PASSENGER >= this.passengerCount + num && this.status.equals("운행")) {
